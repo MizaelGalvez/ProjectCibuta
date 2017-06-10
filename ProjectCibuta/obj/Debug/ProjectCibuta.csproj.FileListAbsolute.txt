@@ -21,3 +21,5 @@ C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\obj\Debug\Project
 C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\obj\Debug\ProjectCibuta.pdb
 C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\bin\Debug\AForge.Vision.dll
 C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\bin\Debug\AForge.Vision.xml
+C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\bin\Debug\AForge.Video.FFMPEG.dll
+C:\Users\Symonds-Pc\Desktop\Mizael\ProjectCibuta\ProjectCibuta\bin\Debug\AForge.Video.FFMPEG.xml

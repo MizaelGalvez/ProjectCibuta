@@ -46,6 +46,9 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\..\..\AForge\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="AForge.Video.FFMPEG">
+      <HintPath>..\..\..\AForge\Release\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
     <Reference Include="AForge.Vision">
       <HintPath>..\..\..\AForge\Release\AForge.Vision.dll</HintPath>
     </Reference>
