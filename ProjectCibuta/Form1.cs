@@ -71,7 +71,7 @@ namespace ProjectCibuta
             
         private void DeteccionMovimiento(object sender, EventArgs e)
         {
-            if (NiveldeDeteccion1 > 00.0030)
+            if (NiveldeDeteccion1 > 00.0010)
             {
                 pictureBox1.BackColor = System.Drawing.Color.Red;
             }
@@ -80,7 +80,7 @@ namespace ProjectCibuta
                 pictureBox1.BackColor = System.Drawing.Color.DarkGray;
             }
 
-            if (NiveldeDeteccion2 > 00.0030)
+            if (NiveldeDeteccion2 > 00.0010)
             {
                 pictureBox2.BackColor = System.Drawing.Color.Red;
             }
@@ -90,7 +90,7 @@ namespace ProjectCibuta
             }
 
 
-            if (NiveldeDeteccion3 > 00.0030)
+            if (NiveldeDeteccion3 > 00.0010)
             {
                 pictureBox4.BackColor = System.Drawing.Color.Red;
             }
@@ -100,7 +100,7 @@ namespace ProjectCibuta
             }
 
 
-            if (NiveldeDeteccion4 > 00.0030)
+            if (NiveldeDeteccion4 > 00.0010)
             {
                 pictureBox3.BackColor = System.Drawing.Color.Red;
             }
@@ -244,6 +244,11 @@ namespace ProjectCibuta
 
             Dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
+                Selector1.Items.Clear();
+                Selector2.Items.Clear();
+                Selector3.Items.Clear();
+                Selector4.Items.Clear();
+
             foreach (FilterInfo x in Dispositivos)
             {
                 Selector1.Items.Add(x.Name);
@@ -253,19 +258,45 @@ namespace ProjectCibuta
             }
 
         }
-        
+
+        private void Selector1_Click(object sender, EventArgs e)
+        {
+            ActualizarSelectorCamaras();
+        }
+
+        private void Selector2_Click(object sender, EventArgs e)
+        {
+            ActualizarSelectorCamaras();
+        }
+
+        private void Selector3_Click(object sender, EventArgs e)
+        {
+            ActualizarSelectorCamaras();
+        }
+
+        private void Selector4_Click(object sender, EventArgs e)
+        {
+            ActualizarSelectorCamaras();
+        }
+
+
+        //////////////////////////////BOTONES//////////////////////////////////////////////
+
+
         private void VideosGuardados_Click(object sender, EventArgs e)
         {
-            this.layoutnavegacion.ColumnStyles[0].Width = 20;
+            this.layoutnavegacion.ColumnStyles[0].Width = 230;
             this.layoutnavegacion.ColumnStyles[1].Width = 0;
-            this.layoutnavegacion.ColumnStyles[2].Width = 80;
+            this.layoutnavegacion.ColumnStyles[2].Width = 0;
+            this.layoutnavegacion.ColumnStyles[3].Width = 100;
         }
         
         private void Home_Click(object sender, EventArgs e)
         {
-            this.layoutnavegacion.ColumnStyles[0].Width = 20;
-            this.layoutnavegacion.ColumnStyles[1].Width = 80;
+            this.layoutnavegacion.ColumnStyles[0].Width = 230;
+            this.layoutnavegacion.ColumnStyles[1].Width = 100;
             this.layoutnavegacion.ColumnStyles[2].Width = 0;
+            this.layoutnavegacion.ColumnStyles[3].Width = 0;
         }
 
 
