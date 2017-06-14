@@ -332,7 +332,16 @@ namespace ProjectCibuta
 
 
 
-
+        //////////////////////////TODO/////////////////////////////
+        //
+        //
+        // Realizar una Captura de pantalla cada bez que se detecte movimiento y se Guarde Por Camara
+        //
+        // Hacer una captura de cada Frame Para Hacer Streaming, para minimisar recursos adjuntar los cuatro capturas en una sola imagen si es Posible, para solo enviar a Stremear una sola imagen y  no cuadtro.
+        //
+        // hacer un Login, para tener los Usuarios, que podrian ser Clientes.
+        //
+        ///////////////////////////////////////////////////////////
 
     }
 
