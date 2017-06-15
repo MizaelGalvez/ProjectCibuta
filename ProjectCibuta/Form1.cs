@@ -11,8 +11,8 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using AForge.Vision.Motion;
 using AForge.Video.FFMPEG;
-
-
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace ProjectCibuta
 {
@@ -21,6 +21,8 @@ namespace ProjectCibuta
         private FilterInfoCollection Dispositivos;
 
         private VideoCaptureDevice FuentedeVideo1, FuentedeVideo2, FuentedeVideo3, FuentedeVideo4;
+
+        private int bucleCAM1, bucleCAM2, bucleCAM3, bucleCAM4;
 
         MotionDetector Detector1, Detector2, Detector3, Detector4;
 
@@ -40,8 +42,9 @@ namespace ProjectCibuta
             Detector2 = new MotionDetector(new TwoFramesDifferenceDetector());
             Detector3 = new MotionDetector(new TwoFramesDifferenceDetector());
             Detector4 = new MotionDetector(new TwoFramesDifferenceDetector());
+            bucleCAM1 = 0; bucleCAM2 = 0; bucleCAM3 = 0; bucleCAM4 = 0;
 
-        }
+    }
 
         //////////////////////////////////ASIGNAR Detector de movimiento a cada Camara/////////////////////////////////////////
 
@@ -83,6 +86,22 @@ namespace ProjectCibuta
             if (NiveldeDeteccion2 > 00.0010)
             {
                 pictureBox2.BackColor = System.Drawing.Color.Red;
+                if (bucleCAM2==0)
+                {
+                    bucleCAM2 = 1;
+                    try
+                    {
+                        GuardarVideo(2);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+
+                    
+                }  
+
             }
             else
             {
@@ -327,10 +346,54 @@ namespace ProjectCibuta
             IntercalarPantallas(camara);
         }
 
-        
+
         ////////////////////////////////////////////////////////////////////////////
 
+        private void GuardarVideo(int camara) {
 
+            string path = @"C:\Users\Symonds-Pc\Downloads";
+
+            switch (camara)
+            {
+
+                case 1:
+                    break;
+                case 2:
+
+
+                    int width = 320;
+                    int height = 240;
+                    // create instance of video writer
+                    VideoFileWriter writer = new VideoFileWriter();
+                    // create new video file
+                    writer.Open("videopruba.avi", width, height, 25, VideoCodec.MPEG4);
+                    // create a bitmap to save into the video file
+                    Bitmap image = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+                    // write 1000 video frames
+                    for (int i = 0; i < 1000; i++)
+                    {
+                        image.SetPixel(i % width, i % height, Color.Red);
+                        writer.WriteVideoFrame(image);
+                    }
+                    writer.Close();
+
+                    bucleCAM2 = 0;
+
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+
+
+
+                default:
+                    break;
+            }
+
+            
+
+        }
 
         //////////////////////////TODO/////////////////////////////
         //
