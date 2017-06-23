@@ -32,6 +32,9 @@ namespace ProjectCibuta
         int pantallacompleta = 100;
 
         
+        //hardware semi listo.
+
+
         public Form1()
         {
             InitializeComponent();
