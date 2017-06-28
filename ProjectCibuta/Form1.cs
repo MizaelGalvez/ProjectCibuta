@@ -364,15 +364,15 @@ namespace ProjectCibuta
                 case 2:
 
 
-                    int width = 320;
-                    int height = 240;
-                    // create instance of video writer
+                    int width = 1080;
+                    int height = 720;
+                    
                     VideoFileWriter writer = new VideoFileWriter();
-                    // create new video file
+                    
                     writer.Open("videopruba.avi", width, height, 25, VideoCodec.MPEG4);
-                    // create a bitmap to save into the video file
+                    
                     Bitmap image = new Bitmap(width, height, PixelFormat.Format24bppRgb);
-                    // write 1000 video frames
+                    
                     for (int i = 0; i < 1000; i++)
                     {
                         image.SetPixel(i % width, i % height, Color.Red);
