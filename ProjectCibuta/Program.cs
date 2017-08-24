@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectCibuta
+namespace MT_project
 {
     static class Program
     {
