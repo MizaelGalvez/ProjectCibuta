@@ -62,8 +62,8 @@
             this.Home = new System.Windows.Forms.Button();
             this.cambioResolucion = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.VideosGuardados = new System.Windows.Forms.Button();
+            this.Horario = new System.Windows.Forms.Button();
+            this.Estrategia = new System.Windows.Forms.Button();
             this.layoutnavegacion.SuspendLayout();
             this.layouttodascamaras.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -467,8 +467,8 @@
             this.tableLayoutPanel3.Controls.Add(this.Home, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.cambioResolucion, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.button2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.VideosGuardados, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.Horario, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.Estrategia, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -536,31 +536,33 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // Horario
             // 
-            this.button3.BackColor = System.Drawing.Color.Gainsboro;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(3, 138);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(218, 39);
-            this.button3.TabIndex = 4;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Horario.BackColor = System.Drawing.Color.Gainsboro;
+            this.Horario.Enabled = false;
+            this.Horario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Horario.ForeColor = System.Drawing.Color.Black;
+            this.Horario.Location = new System.Drawing.Point(3, 138);
+            this.Horario.Name = "Horario";
+            this.Horario.Size = new System.Drawing.Size(218, 39);
+            this.Horario.TabIndex = 4;
+            this.Horario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Horario.UseVisualStyleBackColor = false;
+            this.Horario.Click += new System.EventHandler(this.button3_Click);
             // 
-            // VideosGuardados
+            // Estrategia
             // 
-            this.VideosGuardados.BackColor = System.Drawing.Color.Gainsboro;
-            this.VideosGuardados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideosGuardados.ForeColor = System.Drawing.Color.Black;
-            this.VideosGuardados.Location = new System.Drawing.Point(3, 183);
-            this.VideosGuardados.Name = "VideosGuardados";
-            this.VideosGuardados.Size = new System.Drawing.Size(218, 39);
-            this.VideosGuardados.TabIndex = 0;
-            this.VideosGuardados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.VideosGuardados.UseVisualStyleBackColor = false;
-            this.VideosGuardados.Click += new System.EventHandler(this.VideosGuardados_Click);
+            this.Estrategia.BackColor = System.Drawing.Color.Gainsboro;
+            this.Estrategia.Enabled = false;
+            this.Estrategia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estrategia.ForeColor = System.Drawing.Color.Black;
+            this.Estrategia.Location = new System.Drawing.Point(3, 183);
+            this.Estrategia.Name = "Estrategia";
+            this.Estrategia.Size = new System.Drawing.Size(218, 39);
+            this.Estrategia.TabIndex = 0;
+            this.Estrategia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Estrategia.UseVisualStyleBackColor = false;
+            this.Estrategia.Click += new System.EventHandler(this.VideosGuardados_Click);
             // 
             // Form1
             // 
@@ -610,11 +612,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private AForge.Controls.VideoSourcePlayer videoSourcePlayer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button VideosGuardados;
+        private System.Windows.Forms.Button Estrategia;
         private System.Windows.Forms.Button DesvincularTodo;
         private System.Windows.Forms.Button cambioResolucion;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Horario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;

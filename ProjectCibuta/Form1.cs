@@ -32,7 +32,7 @@ namespace MT_project
         int posicion1, posicion2, posicion3, posicion4;
         int intercalar = 1;
 
-        int R_T = 0;
+        int R_T = 1;
 
         int intercalarBinaria =1;
         int estrategia_aplicada_A = 460;
@@ -44,10 +44,13 @@ namespace MT_project
         
         int ResolucionB = 1810; int estrategiaB_ = 680; int estrategiaB = 560;
 
+        int VentanaNueva = 460;
+
+
         double sensibilidadUSADA = 00.01;
 
-        double sensibilidadA = 00.0001;
-        double sensibilidadB = 00.0001;
+        double sensibilidadA = 00.01;
+        double sensibilidadB = 00.001;
 
         int horaA = 7;
         int horaB = 10;
@@ -112,10 +115,10 @@ namespace MT_project
             Detector5 = new MotionDetector(new TwoFramesDifferenceDetector());
             bucleCAM1 = 0; bucleCAM2 = 0; bucleCAM3 = 0; bucleCAM4 = 0; bucleCAM5 = 0;
 
-            VideosGuardados.Text = "Tendencia";
-            VideosGuardados.BackColor = Color.Blue;
-            button3.Text = "CON HORARIO";
-
+            Estrategia.Text = "Tendencia";
+            Estrategia.BackColor = Color.Blue;
+            Horario.Text = "CON HORARIO";
+            cambioResolucion.Text = "Resolucion 1470";
 
         }
 
@@ -164,7 +167,7 @@ namespace MT_project
                     g.DrawRectangle(pen, objectRect);
                    
                 }
-                if (intercalar == 2)
+                /*if (intercalar == 2)
                 {
                     if ((objectRect.Y > 150 && objectRect.Y < 250))
                     {
@@ -178,7 +181,7 @@ namespace MT_project
                         R_T = 1;
                     }
                 }
-
+                */
 
 
                 g.Dispose();
@@ -214,9 +217,7 @@ namespace MT_project
             F_rojo.ApplyInPlace(image);
             NiveldeDeteccion3 = Detector3.ProcessFrame(image);
         }
-
         
-
         private void videoSourcePlayer3_NewFrame(object sender, ref Bitmap image)
         {
             EuclideanColorFiltering F_naranja = new EuclideanColorFiltering();
@@ -251,7 +252,7 @@ namespace MT_project
                 resolucionAPLICADA = resolucionA;
                 estrategia_aplicada_A = estrategiaA;
                 estrategia_aplicada_B = estrategiaB;
-
+                VentanaNueva = estrategiaA;
                 cambioResolucion.Text = "Resolucion 1470";
 
                 intercalarBinaria = 1;
@@ -262,7 +263,7 @@ namespace MT_project
                 resolucionAPLICADA = ResolucionB;
                 estrategia_aplicada_A = estrategiaA_;
                 estrategia_aplicada_B = estrategiaB_;
-
+                VentanaNueva = estrategiaA_;
                 cambioResolucion.Text = "Resolucion 1810";
 
                 intercalarBinaria = 0;
@@ -325,7 +326,7 @@ namespace MT_project
 
                SendKeys.Send("^w");
 
-               Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A);// original en Y 550
+               Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, VentanaNueva);// original en Y 550
                HacerClickConHora();
 
                 Thread.Sleep(2000);
@@ -360,10 +361,15 @@ namespace MT_project
         }
 
 
-        //////////////////////////////////Botones para Vincular y Desvincular Camaras//////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////
 
         private void Home_Click(object sender, EventArgs e)
         {
+            Estrategia.Enabled = true;
+
+            Horario.Enabled = true;
+
+
             Rectangle screenArea = Rectangle.Empty;
 
             screenArea = new Rectangle(1200, 790, 150, 110); //coordenadas esactas de la grafica en desarrollo
@@ -377,7 +383,7 @@ namespace MT_project
 
             Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
 
-            screenArea2 = new Rectangle(1200, 775, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+            screenArea2 = new Rectangle(1200, 780, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
 
             FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
 
@@ -397,7 +403,7 @@ namespace MT_project
 
             Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
 
-            screenArea4 = new Rectangle(1200, 905, 150, 10); //si Funciona el PUSH antes 982 menos 10
+            screenArea4 = new Rectangle(1200, 899, 150, 10); //si Funciona el PUSH antes 982 menos 10
 
             FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
 
@@ -422,6 +428,16 @@ namespace MT_project
             videoSourcePlayer3.SignalToStop();
             videoSourcePlayer4.SignalToStop();
             videoSourcePlayer5.SignalToStop();
+            Estrategia.Enabled = true;
+            Estrategia.BackColor = SystemColors.Control;
+            Estrategia.Enabled = false;
+
+            Horario.Enabled = true;
+            Horario.BackColor = SystemColors.Control;
+            Horario.Enabled = false;
+
+
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -443,12 +459,12 @@ namespace MT_project
 
         public delegate void ControlStringConsumer(Control control, int text);  // defines a delegate type
 
-        public void SetText(Control control, int text)
+        public void Refrescar(Control control, int text)
         {
-            control.Invoke(new ControlStringConsumer(SetTextGUI), new object[] { control, text });  // invoking another method
+            control.Invoke(new ControlStringConsumer(RegrescarGUI), new object[] { control, text });  // invoking another method
         }
 
-        public void SetTextGUI(Control control, int text)
+        public void RegrescarGUI(Control control, int text)
         {
             if (text == 1)
             {
@@ -480,28 +496,52 @@ namespace MT_project
             }
             else
             {
-                SetText(videoSourcePlayer1, 1);
+            Refrescar(videoSourcePlayer1, 1);
+            Refrescar(videoSourcePlayer4, 1);
 
             Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
 
-            screenArea2 = new Rectangle(1200, 772, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+            screenArea2 = new Rectangle(1200, 780, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
 
             FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
 
-             SetText(videoSourcePlayer1, 2);
+             Refrescar(videoSourcePlayer1, 2);
 
              Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
 
-            screenArea4 = new Rectangle(1200, 908, 150, 10); //si Funciona el PUSH antes 982 menos 10
+            screenArea4 = new Rectangle(1200, 899, 150, 10); //si Funciona el PUSH antes 982 menos 10
 
             FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
 
-            SetText(videoSourcePlayer1, 3);
+            Refrescar(videoSourcePlayer4, 3);
 
             sensibilidadUSADA = sensibilidadA;
-            estrategiaA = 460;
-            estrategiaB = 560;
-            VideosGuardados.BackColor = Color.Blue;
+
+
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaA;
+                    estrategia_aplicada_B = estrategiaB;
+
+                    cambioResolucion.Text = "Resolucion 1470";
+
+
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaA_;
+                    estrategia_aplicada_B = estrategiaB_;
+
+                    cambioResolucion.Text = "Resolucion 1810";
+
+                }
+
+                button2.Text = estrategia_aplicada_A.ToString();
+
+
+            Estrategia.BackColor = Color.Blue;
             }
         }
 
@@ -511,31 +551,56 @@ namespace MT_project
 
             }
             else
-            {
-                SetText(videoSourcePlayer1, 1);
+            {//(1200, 770, 150, 5); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+             //(1200, 912, 150, 5); //si Funciona el PUSH antes 982 menos 10
+
+
+                Refrescar(videoSourcePlayer1, 1);
+                Refrescar(videoSourcePlayer4, 1);
 
                 Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
 
-                screenArea2 = new Rectangle(1200, 777, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+                screenArea2 = new Rectangle(1140, 765, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
 
                 FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
 
-                SetText(videoSourcePlayer1, 2);
+                Refrescar(videoSourcePlayer1, 2);
 
                 Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
 
-                screenArea4 = new Rectangle(1200, 903, 150, 10); //si Funciona el PUSH antes 982 menos 10
+                screenArea4 = new Rectangle(1140, 912, 150, 10); //si Funciona el PUSH antes 982 menos 10
 
                 FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
 
-                SetText(videoSourcePlayer1, 3);
-                
+                Refrescar(videoSourcePlayer4, 3);
+
                 sensibilidadUSADA = sensibilidadB;
 
-                estrategiaA = 560;
-                estrategiaB = 460;
 
-                VideosGuardados.BackColor = Color.Yellow;
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaB;
+                    estrategia_aplicada_B = estrategiaA;
+
+                    cambioResolucion.Text = "Resolucion 1470";
+
+
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaB_;
+                    estrategia_aplicada_B = estrategiaA_;
+
+                    cambioResolucion.Text = "Resolucion 1810";
+
+                }
+
+                button2.Text = estrategia_aplicada_A.ToString();
+
+
+                Estrategia.BackColor = Color.Yellow;
             }
             
         }
@@ -547,28 +612,20 @@ namespace MT_project
             switch (intercalar)
             {
                 case 0:
-                    
-                    sensibilidadUSADA = sensibilidadA;
-                    estrategiaA = 460;
-                    estrategiaB = 560;
-                    VideosGuardados.Text = "Tendencia";
-                    VideosGuardados.BackColor = Color.Blue;
 
+                    tendencia();
+                    R_T = 1;
+                    Estrategia.Text = "Tendencia";
                     intercalar = 1; break;
-                case 1:
-                    VideosGuardados.Text = "AUTO";
+                /*case 1:
+                    VideosGuardados.Text = "";
                     VideosGuardados.BackColor = Color.Green;
 
-                    intercalar = 2; break;
-                case 2:
-                    sensibilidadUSADA = sensibilidadB;
-
-                    estrategiaA = 560;
-                    estrategiaB = 460;
-
-                    VideosGuardados.Text = "Rebote";
-                    VideosGuardados.BackColor = Color.Yellow;
-
+                    intercalar = 2; break;*/
+                case 1:
+                    rebote();
+                    R_T = 0;
+                    Estrategia.Text = "Rebote";
                     intercalar = 0; break;
 
                 default:
@@ -593,7 +650,7 @@ namespace MT_project
                  minutoA = 0;
                  minutoB = 60;
 
-                button3.Text = "SIN HORARIO";
+                Horario.Text = "SIN HORARIO";
 
                 intercalar = 1;
 
@@ -607,7 +664,7 @@ namespace MT_project
                 minutoA = minutoA_;
                 minutoB = minutoB_;
 
-                button3.Text = "CON HORARIO";
+                Horario.Text = "CON HORARIO";
 
                 intercalar = 0;
             }
