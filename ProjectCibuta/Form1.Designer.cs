@@ -562,7 +562,6 @@
             this.Estrategia.TabIndex = 0;
             this.Estrategia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Estrategia.UseVisualStyleBackColor = false;
-            this.Estrategia.Click += new System.EventHandler(this.VideosGuardados_Click);
             // 
             // Form1
             // 

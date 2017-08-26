@@ -47,10 +47,10 @@ namespace MT_project
         int VentanaNueva = 460;
 
 
-        double sensibilidadUSADA = 00.01;
+        double sensibilidadUSADA = 00.002;
 
         double sensibilidadA = 00.01;
-        double sensibilidadB = 00.001;
+        double sensibilidadB = 00.0001;
 
         int horaA = 7;
         int horaB = 10;
@@ -115,7 +115,7 @@ namespace MT_project
             Detector5 = new MotionDetector(new TwoFramesDifferenceDetector());
             bucleCAM1 = 0; bucleCAM2 = 0; bucleCAM3 = 0; bucleCAM4 = 0; bucleCAM5 = 0;
 
-            Estrategia.Text = "Tendencia";
+            //Estrategia.Text = "Tendencia";
             Estrategia.BackColor = Color.Blue;
             Horario.Text = "CON HORARIO";
             cambioResolucion.Text = "Resolucion 1470";
@@ -129,8 +129,81 @@ namespace MT_project
 
 
 
+        
+
+
+
+        ////////////////////////////////////////////////////////primeras 2 vetanas a la izquierda//////////////////////////////////////////////////////////////////
+        
+
+
+        private void videoSourcePlayer1_NewFrame_1(object sender, ref Bitmap image)
+        {
+            EuclideanColorFiltering F_verde_D = new EuclideanColorFiltering(); //TENDENCIA 1/1
+            // set center colol and radius
+            F_verde_D.CenterColor = new RGB(127, 0, 255);
+            F_verde_D.Radius = 100;
+            // apply the filter
+            F_verde_D.ApplyInPlace(image);
+            NiveldeDeteccion1 = Detector1.ProcessFrame(image);
+        }
+
+        private void videoSourcePlayer4_NewFrame(object sender, ref Bitmap image)
+        {
+            EuclideanColorFiltering F_rojo = new EuclideanColorFiltering(); //TENDENCIA 1/2
+            // set center colol and radius
+            F_rojo.CenterColor = new RGB(127, 0, 255);
+            F_rojo.Radius = 100;
+            // apply the filter
+            F_rojo.ApplyInPlace(image);
+            NiveldeDeteccion3 = Detector3.ProcessFrame(image);
+        }
+
+        ////////////////////////////////////////////////////////////SEGUNDA DOS VENTANAS A LA DERECHA//////////////////////////////////////////////////////////////
+
+
+        private void videoSourcePlayer3_NewFrame(object sender, ref Bitmap image)
+        {
+            EuclideanColorFiltering F_verde_up = new EuclideanColorFiltering(); //TENDENCIA 1/1
+            // set center colol and radius
+            F_verde_up.CenterColor = new RGB(127, 0, 255);
+            F_verde_up.Radius = 100;
+            //apply the filter
+            F_verde_up.ApplyInPlace(image);
+            NiveldeDeteccion2 = Detector2.ProcessFrame(image);
+        }
+
         private void videoSourcePlayer5_NewFrame(object sender, ref Bitmap image)
         {
+
+
+            EuclideanColorFiltering F_verde = new EuclideanColorFiltering(); //TENDENCIA 1/1
+            // set center colol and radius
+            F_verde.CenterColor = new RGB(127, 0, 255);
+            F_verde.Radius = 100;
+            //apply the filter
+            F_verde.ApplyInPlace(image);
+            NiveldeDeteccion5 = Detector5.ProcessFrame(image);
+
+        }
+
+        //////////////////////////////////////////////////////////////nueva Ventana////////////////////////////////////////////////////////////
+
+        private void videoSourcePlayer2_NewFrame_1(object sender, ref Bitmap image)
+        {
+
+
+            EuclideanColorFiltering F_naranja = new EuclideanColorFiltering(); //NUEVA VENTANA
+            // set center colol and radius
+            F_naranja.CenterColor = new RGB(255, 153, 51);
+            F_naranja.Radius = 100;
+            // apply the filter
+            F_naranja.ApplyInPlace(image);
+            NiveldeDeteccion4 = Detector4.ProcessFrame(image);
+
+
+            /*
+
             // create filter
             EuclideanColorFiltering filter = new EuclideanColorFiltering();
             // set center colol and radius
@@ -139,17 +212,12 @@ namespace MT_project
             // apply the filter
             filter.ApplyInPlace(image);
 
+
             BlobCounter blobCounter = new BlobCounter();
             blobCounter.MinWidth = 8;                    // set minimum size of
             blobCounter.MinHeight = 1;                   // objects we look for
             blobCounter.FilterBlobs = true;               // filter blobs by size
             blobCounter.ObjectsOrder = ObjectsOrder.Area; // order found object by size
-
-            
-
-
-
-
 
             // grayscaling
             Bitmap grayImage = (image);
@@ -165,9 +233,9 @@ namespace MT_project
                 using (Pen pen = new Pen(Color.FromArgb(255, 255, 255), 7))
                 {
                     g.DrawRectangle(pen, objectRect);
-                   
+
                 }
-                /*if (intercalar == 2)
+                if (intercalar == 2)
                 {
                     if ((objectRect.Y > 150 && objectRect.Y < 250))
                     {
@@ -181,67 +249,17 @@ namespace MT_project
                         R_T = 1;
                     }
                 }
-                */
 
 
                 g.Dispose();
             }
-            
+
+                */
+
 
         }
 
-
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-
-
-        private void videoSourcePlayer1_NewFrame_1(object sender, ref Bitmap image)
-        {
-            EuclideanColorFiltering F_verde = new EuclideanColorFiltering();
-            // set center colol and radius
-            F_verde.CenterColor = new RGB(127, 0, 255);//RGB(112, 255, 112);
-            F_verde.Radius = 100;
-            // apply the filter
-            F_verde.ApplyInPlace(image);
-            NiveldeDeteccion1 = Detector1.ProcessFrame(image);
-        }
-
-        private void videoSourcePlayer4_NewFrame(object sender, ref Bitmap image)
-        {
-            EuclideanColorFiltering F_rojo = new EuclideanColorFiltering();
-            // set center colol and radius
-            F_rojo.CenterColor = new RGB(127, 0, 255);//RGB(255, 0, 0);
-            F_rojo.Radius = 100;
-            // apply the filter
-            F_rojo.ApplyInPlace(image);
-            NiveldeDeteccion3 = Detector3.ProcessFrame(image);
-        }
-        
-        private void videoSourcePlayer3_NewFrame(object sender, ref Bitmap image)
-        {
-            EuclideanColorFiltering F_naranja = new EuclideanColorFiltering();
-            // set center colol and radius
-            F_naranja.CenterColor = new RGB(255, 153, 51);
-            F_naranja.Radius = 100;
-            // apply the filter
-            F_naranja.ApplyInPlace(image);
-            NiveldeDeteccion4 = Detector4.ProcessFrame(image);
-        }
-        private void videoSourcePlayer2_NewFrame_1(object sender, ref Bitmap image)
-        {
-            
-            //NiveldeDeteccion2 = Detector2.ProcessFrame(image);
-            EuclideanColorFiltering F_morado = new EuclideanColorFiltering();
-            // set center colol and radius
-            F_morado.CenterColor = new RGB(127, 0, 255);
-            F_morado.Radius = 100;
-            // apply the filter
-            //F_morado.ApplyInPlace(image);
-            
-
-        }
-
+       
 
         ////////////////////////////////////////////////////////////////////////////
 
@@ -274,10 +292,37 @@ namespace MT_project
 
 
 
+        //////////////////////////////////////////////////////priemras DOS////////////////////////////////////////////////////////////////////
+
+
         private void DeteccionMovimiento(object sender, EventArgs e)
         {
-            if (NiveldeDeteccion1 > sensibilidadUSADA)
+            if (NiveldeDeteccion1 > sensibilidadB)
             {
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaB;
+                    estrategia_aplicada_B = estrategiaA;
+
+                    cambioResolucion.Text = "Resolucion 1470";
+
+
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaB_;
+                    estrategia_aplicada_B = estrategiaA_;
+
+                    cambioResolucion.Text = "Resolucion 1810";
+
+                }
+
+                button2.Text = estrategia_aplicada_A.ToString();
+
+
+
                 pictureBox1.BackColor = System.Drawing.Color.Red; //original accion VERDE
                 Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A); 
                 HacerClickConHora();
@@ -289,20 +334,34 @@ namespace MT_project
                 pictureBox1.BackColor = System.Drawing.Color.DarkGray;
             }
 
-            if (NiveldeDeteccion2 > 00.0001)
-            {
-                pictureBox2.BackColor = System.Drawing.Color.Red;
-                //SendRightClick(900,200);
-
-            }
-            else
-            {
-                pictureBox2.BackColor = System.Drawing.Color.DarkGray;
-            }
 
 
-            if (NiveldeDeteccion3 > sensibilidadUSADA)
+
+            if (NiveldeDeteccion3 > sensibilidadB)
             {
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaB;
+                    estrategia_aplicada_B = estrategiaA;
+
+                    cambioResolucion.Text = "Resolucion 1470";
+
+
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaB_;
+                    estrategia_aplicada_B = estrategiaA_;
+
+                    cambioResolucion.Text = "Resolucion 1810";
+
+                }
+
+                button2.Text = estrategia_aplicada_A.ToString();
+
+
                 pictureBox4.BackColor = System.Drawing.Color.Red; //del Horiginal Acion ROJA
                 Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
                 HacerClickConHora();
@@ -316,43 +375,105 @@ namespace MT_project
             }
 
 
-            if (NiveldeDeteccion4 > 00.0001)
+
+            /////////////////////////////////////////////////////segundas DOS////////////////////////////////////////////////////////////////////
+
+
+
+
+
+            if (NiveldeDeteccion2 > sensibilidadUSADA)
             {
-                pictureBox3.BackColor = System.Drawing.Color.Red; // de nueva ventana
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaA;
+                    estrategia_aplicada_B = estrategiaB;
+
+                    cambioResolucion.Text = "Resolucion 1470";
 
 
-               Cursor.Position = new System.Drawing.Point(850, 5);// original en Y 550
-               HacerClickConHora();
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaA_;
+                    estrategia_aplicada_B = estrategiaB_;
 
-               SendKeys.Send("^w");
+                    cambioResolucion.Text = "Resolucion 1810";
 
-               Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, VentanaNueva);// original en Y 550
-               HacerClickConHora();
+                }
 
+                button2.Text = estrategia_aplicada_A.ToString();
+                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
+                HacerClickConHora();
                 Thread.Sleep(2000);
+
                 
-              // Cursor.Position = new Point(100, 100);
-              // HacerClickConHora();
 
             }
             else
             {
-                pictureBox3.BackColor = System.Drawing.Color.DarkGray;
+                pictureBox2.BackColor = System.Drawing.Color.DarkGray;
             }
 
 
             if (NiveldeDeteccion5 > sensibilidadUSADA)
             {
-                /*pictureBox4.BackColor = System.Drawing.Color.Red; //del Horiginal Acion ROJA
-                Cursor.Position = new Point(1470, estrategiaB);
+                if (intercalarBinaria == 1)
+                {
+                    resolucionAPLICADA = resolucionA;
+                    estrategia_aplicada_A = estrategiaA;
+                    estrategia_aplicada_B = estrategiaB;
+
+                    cambioResolucion.Text = "Resolucion 1470";
+
+
+                }
+                else
+                {
+                    resolucionAPLICADA = ResolucionB;
+                    estrategia_aplicada_A = estrategiaA_;
+                    estrategia_aplicada_B = estrategiaB_;
+
+                    cambioResolucion.Text = "Resolucion 1810";
+
+                }
+
+                button2.Text = estrategia_aplicada_A.ToString();
+
+                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A);
                 HacerClickConHora();
                 Thread.Sleep(2000);
-                */
 
             }
             else
             {
                // pictureBox4.BackColor = System.Drawing.Color.DarkGray;
+            }
+
+
+            /////////////////////////////////////////////////////segundas DOS////////////////////////////////////////////////////////////////////
+
+
+            if (NiveldeDeteccion4 > 00.0001)
+            {
+                pictureBox3.BackColor = System.Drawing.Color.Red; // de nueva ventana
+
+
+                Cursor.Position = new System.Drawing.Point(850, 5);// original en Y 550
+                HacerClickConHora();
+
+                SendKeys.Send("^w");
+
+                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, VentanaNueva);// original en Y 550
+                HacerClickConHora();
+
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                pictureBox3.BackColor = System.Drawing.Color.DarkGray;
             }
 
 
@@ -372,7 +493,7 @@ namespace MT_project
 
             Rectangle screenArea = Rectangle.Empty;
 
-            screenArea = new Rectangle(1200, 790, 150, 110); //coordenadas esactas de la grafica en desarrollo
+            screenArea = new Rectangle(1758, 500, 150, 150); //NUEVA VENTANA
 
             FuentedeVideo2 = new ScreenCaptureStream(screenArea);
 
@@ -383,7 +504,7 @@ namespace MT_project
 
             Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
 
-            screenArea2 = new Rectangle(1200, 780, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+            screenArea2 = new Rectangle(1140, 765, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
 
             FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
 
@@ -393,7 +514,7 @@ namespace MT_project
 
             Rectangle screenArea3 = Rectangle.Empty;
 
-            screenArea3 = new Rectangle(1758, 500, 150, 150);
+            screenArea3 = new Rectangle(1200, 899, 150, 10); //COORDENADAS TENDENCIA SEGUNDA COLUMNA SEGUNDA RENGLON
 
             FuentedeVideo3 = new ScreenCaptureStream(screenArea3);
 
@@ -403,7 +524,7 @@ namespace MT_project
 
             Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
 
-            screenArea4 = new Rectangle(1200, 899, 150, 10); //si Funciona el PUSH antes 982 menos 10
+            screenArea4 = new Rectangle(1140, 912, 150, 10); //si Funciona el PUSH antes 982 menos 10
 
             FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
 
@@ -411,9 +532,9 @@ namespace MT_project
             videoSourcePlayer4.Start();
 
 
-            Rectangle screenArea5 = Rectangle.Empty; //coordenadas de la Tendencia
+            Rectangle screenArea5 = Rectangle.Empty; //COORDENADAS TENDENCIA SEGUNDA COLUMNA PRIMER RENGLON
 
-            screenArea5 = new Rectangle(1250, 250, 20, 400);
+            screenArea5 = new Rectangle(1200, 780, 150, 10);
 
             FuentedeVideo5 = new ScreenCaptureStream(screenArea5);
 
@@ -486,155 +607,7 @@ namespace MT_project
 
         //////////////////////////////BOTONES//////////////////////////////////////////////
 
-
-
-        public void tendencia() {
-
-            if (R_T == 1)
-            {
-
-            }
-            else
-            {
-            Refrescar(videoSourcePlayer1, 1);
-            Refrescar(videoSourcePlayer4, 1);
-
-            Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
-
-            screenArea2 = new Rectangle(1200, 780, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
-
-            FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
-
-             Refrescar(videoSourcePlayer1, 2);
-
-             Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
-
-            screenArea4 = new Rectangle(1200, 899, 150, 10); //si Funciona el PUSH antes 982 menos 10
-
-            FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
-
-            Refrescar(videoSourcePlayer4, 3);
-
-            sensibilidadUSADA = sensibilidadA;
-
-
-                if (intercalarBinaria == 1)
-                {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaA;
-                    estrategia_aplicada_B = estrategiaB;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
-                }
-                else
-                {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaA_;
-                    estrategia_aplicada_B = estrategiaB_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
-                }
-
-                button2.Text = estrategia_aplicada_A.ToString();
-
-
-            Estrategia.BackColor = Color.Blue;
-            }
-        }
-
-        public void rebote() {
-            if (R_T == 0)
-            {
-
-            }
-            else
-            {//(1200, 770, 150, 5); // si funciona la deteccion y el PUT anterior de 785  y menos 10
-             //(1200, 912, 150, 5); //si Funciona el PUSH antes 982 menos 10
-
-
-                Refrescar(videoSourcePlayer1, 1);
-                Refrescar(videoSourcePlayer4, 1);
-
-                Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
-
-                screenArea2 = new Rectangle(1140, 765, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
-
-                FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
-
-                Refrescar(videoSourcePlayer1, 2);
-
-                Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
-
-                screenArea4 = new Rectangle(1140, 912, 150, 10); //si Funciona el PUSH antes 982 menos 10
-
-                FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
-
-                Refrescar(videoSourcePlayer4, 3);
-
-                sensibilidadUSADA = sensibilidadB;
-
-
-                if (intercalarBinaria == 1)
-                {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaB;
-                    estrategia_aplicada_B = estrategiaA;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
-                }
-                else
-                {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaB_;
-                    estrategia_aplicada_B = estrategiaA_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
-                }
-
-                button2.Text = estrategia_aplicada_A.ToString();
-
-
-                Estrategia.BackColor = Color.Yellow;
-            }
             
-        }
-
-
-        private void VideosGuardados_Click(object sender, EventArgs e)
-        {
-
-            switch (intercalar)
-            {
-                case 0:
-
-                    tendencia();
-                    R_T = 1;
-                    Estrategia.Text = "Tendencia";
-                    intercalar = 1; break;
-                /*case 1:
-                    VideosGuardados.Text = "";
-                    VideosGuardados.BackColor = Color.Green;
-
-                    intercalar = 2; break;*/
-                case 1:
-                    rebote();
-                    R_T = 0;
-                    Estrategia.Text = "Rebote";
-                    intercalar = 0; break;
-
-                default:
-                    break;
-            }
-
-        }
-
-
 
 
         private void button3_Click(object sender, EventArgs e)
