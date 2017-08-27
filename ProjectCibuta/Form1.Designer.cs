@@ -107,7 +107,7 @@
             this.layoutnavegacion.Name = "layoutnavegacion";
             this.layoutnavegacion.RowCount = 1;
             this.layoutnavegacion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutnavegacion.Size = new System.Drawing.Size(783, 273);
+            this.layoutnavegacion.Size = new System.Drawing.Size(227, 273);
             this.layoutnavegacion.TabIndex = 13;
             // 
             // layouttodascamaras
@@ -123,7 +123,7 @@
             this.layouttodascamaras.RowCount = 1;
             this.layouttodascamaras.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.layouttodascamaras.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 267F));
-            this.layouttodascamaras.Size = new System.Drawing.Size(547, 267);
+            this.layouttodascamaras.Size = new System.Drawing.Size(1, 267);
             this.layouttodascamaras.TabIndex = 13;
             // 
             // tableLayoutPanel5
@@ -136,7 +136,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(275, 261);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1, 261);
             this.tableLayoutPanel5.TabIndex = 14;
             // 
             // tableLayoutPanel14
@@ -155,7 +155,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(269, 255);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1, 255);
             this.tableLayoutPanel14.TabIndex = 14;
             // 
             // tableLayoutPanel11
@@ -168,7 +168,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(128, 122);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1, 122);
             this.tableLayoutPanel11.TabIndex = 20;
             // 
             // tableLayoutPanel12
@@ -185,7 +185,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.79922F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.109873F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(122, 116);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1, 116);
             this.tableLayoutPanel12.TabIndex = 12;
             // 
             // pictureBox4
@@ -193,7 +193,7 @@
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox4.Location = new System.Drawing.Point(3, 104);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(116, 1);
+            this.pictureBox4.Size = new System.Drawing.Size(1, 1);
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
             // 
@@ -205,7 +205,7 @@
             this.videoSourcePlayer4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.videoSourcePlayer4.Location = new System.Drawing.Point(3, 3);
             this.videoSourcePlayer4.Name = "videoSourcePlayer4";
-            this.videoSourcePlayer4.Size = new System.Drawing.Size(116, 95);
+            this.videoSourcePlayer4.Size = new System.Drawing.Size(1, 95);
             this.videoSourcePlayer4.TabIndex = 0;
             this.videoSourcePlayer4.Text = "videoSourcePlayer4";
             this.videoSourcePlayer4.VideoSource = null;
@@ -217,11 +217,11 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(137, 130);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 130);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(129, 122);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1, 122);
             this.tableLayoutPanel8.TabIndex = 19;
             // 
             // tableLayoutPanel9
@@ -238,7 +238,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.8F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.109091F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(123, 116);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1, 116);
             this.tableLayoutPanel9.TabIndex = 12;
             // 
             // pictureBox3
@@ -246,7 +246,7 @@
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Location = new System.Drawing.Point(3, 104);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(117, 1);
+            this.pictureBox3.Size = new System.Drawing.Size(1, 1);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
@@ -258,7 +258,7 @@
             this.videoSourcePlayer3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.videoSourcePlayer3.Location = new System.Drawing.Point(3, 3);
             this.videoSourcePlayer3.Name = "videoSourcePlayer3";
-            this.videoSourcePlayer3.Size = new System.Drawing.Size(117, 95);
+            this.videoSourcePlayer3.Size = new System.Drawing.Size(1, 95);
             this.videoSourcePlayer3.TabIndex = 0;
             this.videoSourcePlayer3.Text = "videoSourcePlayer3";
             this.videoSourcePlayer3.VideoSource = null;
@@ -274,7 +274,7 @@
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(128, 121);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(1, 121);
             this.tableLayoutPanel19.TabIndex = 14;
             // 
             // tableLayoutPanel15
@@ -287,7 +287,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(122, 115);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1, 115);
             this.tableLayoutPanel15.TabIndex = 18;
             // 
             // tableLayoutPanel1
@@ -304,7 +304,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.79922F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.109873F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(116, 109);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1, 109);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // pictureBox1
@@ -312,7 +312,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 98);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 1);
+            this.pictureBox1.Size = new System.Drawing.Size(1, 1);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -324,7 +324,7 @@
             this.videoSourcePlayer1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.videoSourcePlayer1.Location = new System.Drawing.Point(3, 3);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
-            this.videoSourcePlayer1.Size = new System.Drawing.Size(110, 89);
+            this.videoSourcePlayer1.Size = new System.Drawing.Size(1, 89);
             this.videoSourcePlayer1.TabIndex = 0;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
@@ -336,11 +336,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel10, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(137, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(129, 121);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1, 121);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
             // tableLayoutPanel10
@@ -353,7 +353,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(123, 115);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1, 115);
             this.tableLayoutPanel10.TabIndex = 19;
             // 
             // tableLayoutPanel13
@@ -370,7 +370,7 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.79922F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.109873F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(117, 109);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(1, 109);
             this.tableLayoutPanel13.TabIndex = 13;
             // 
             // pictureBox5
@@ -378,7 +378,7 @@
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(3, 98);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(111, 1);
+            this.pictureBox5.Size = new System.Drawing.Size(1, 1);
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
             // 
@@ -390,7 +390,7 @@
             this.videoSourcePlayer5.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.videoSourcePlayer5.Location = new System.Drawing.Point(3, 3);
             this.videoSourcePlayer5.Name = "videoSourcePlayer5";
-            this.videoSourcePlayer5.Size = new System.Drawing.Size(111, 89);
+            this.videoSourcePlayer5.Size = new System.Drawing.Size(1, 89);
             this.videoSourcePlayer5.TabIndex = 0;
             this.videoSourcePlayer5.Text = "videoSourcePlayer5";
             this.videoSourcePlayer5.VideoSource = null;
@@ -402,11 +402,11 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(284, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(260, 261);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1, 261);
             this.tableLayoutPanel4.TabIndex = 15;
             // 
             // tableLayoutPanel6
@@ -424,7 +424,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.79922F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.109873F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(254, 255);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1, 255);
             this.tableLayoutPanel6.TabIndex = 12;
             // 
             // pictureBox2
@@ -432,7 +432,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(3, 226);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(248, 1);
+            this.pictureBox2.Size = new System.Drawing.Size(1, 1);
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
             // 
@@ -444,7 +444,7 @@
             this.videoSourcePlayer2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.videoSourcePlayer2.Location = new System.Drawing.Point(3, 3);
             this.videoSourcePlayer2.Name = "videoSourcePlayer2";
-            this.videoSourcePlayer2.Size = new System.Drawing.Size(248, 217);
+            this.videoSourcePlayer2.Size = new System.Drawing.Size(1, 217);
             this.videoSourcePlayer2.TabIndex = 0;
             this.videoSourcePlayer2.Text = "videoSourcePlayer2";
             this.videoSourcePlayer2.VideoSource = null;
@@ -455,7 +455,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(1, 17);
             this.label1.TabIndex = 11;
             this.label1.Text = "label1";
             // 
@@ -485,22 +485,30 @@
             // DesvincularTodo
             // 
             this.DesvincularTodo.BackColor = System.Drawing.Color.Black;
+            this.DesvincularTodo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.DesvincularTodo.FlatAppearance.BorderSize = 3;
+            this.DesvincularTodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.DesvincularTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DesvincularTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DesvincularTodo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.DesvincularTodo.ForeColor = System.Drawing.Color.Red;
             this.DesvincularTodo.Location = new System.Drawing.Point(3, 228);
             this.DesvincularTodo.Name = "DesvincularTodo";
             this.DesvincularTodo.Size = new System.Drawing.Size(218, 36);
             this.DesvincularTodo.TabIndex = 5;
-            this.DesvincularTodo.Text = "Desvincular";
+            this.DesvincularTodo.Text = "PAUSAR";
             this.DesvincularTodo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DesvincularTodo.UseVisualStyleBackColor = false;
             this.DesvincularTodo.Click += new System.EventHandler(this.DesvincularTodo_Click);
             // 
             // Home
             // 
-            this.Home.BackColor = System.Drawing.Color.LimeGreen;
+            this.Home.BackColor = System.Drawing.Color.Black;
+            this.Home.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.Home.FlatAppearance.BorderSize = 3;
+            this.Home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home.ForeColor = System.Drawing.SystemColors.Control;
+            this.Home.ForeColor = System.Drawing.Color.Lime;
             this.Home.Location = new System.Drawing.Point(3, 3);
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(218, 39);
@@ -512,7 +520,11 @@
             // 
             // cambioResolucion
             // 
-            this.cambioResolucion.BackColor = System.Drawing.Color.Gainsboro;
+            this.cambioResolucion.BackColor = System.Drawing.Color.DarkOrange;
+            this.cambioResolucion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cambioResolucion.FlatAppearance.BorderSize = 3;
+            this.cambioResolucion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.cambioResolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cambioResolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambioResolucion.ForeColor = System.Drawing.Color.Black;
             this.cambioResolucion.Location = new System.Drawing.Point(3, 48);
@@ -526,7 +538,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.BackColor = System.Drawing.Color.DarkOrange;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.BorderSize = 3;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(3, 93);
@@ -538,8 +554,12 @@
             // 
             // Horario
             // 
-            this.Horario.BackColor = System.Drawing.Color.Gainsboro;
+            this.Horario.BackColor = System.Drawing.Color.DarkOrange;
             this.Horario.Enabled = false;
+            this.Horario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.Horario.FlatAppearance.BorderSize = 3;
+            this.Horario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.Horario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Horario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Horario.ForeColor = System.Drawing.Color.Black;
             this.Horario.Location = new System.Drawing.Point(3, 138);
@@ -552,8 +572,11 @@
             // 
             // Estrategia
             // 
-            this.Estrategia.BackColor = System.Drawing.Color.Gainsboro;
+            this.Estrategia.BackColor = System.Drawing.Color.Black;
             this.Estrategia.Enabled = false;
+            this.Estrategia.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.Estrategia.FlatAppearance.BorderSize = 4;
+            this.Estrategia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Estrategia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Estrategia.ForeColor = System.Drawing.Color.Black;
             this.Estrategia.Location = new System.Drawing.Point(3, 183);
@@ -568,11 +591,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(783, 273);
+            this.ClientSize = new System.Drawing.Size(227, 273);
             this.Controls.Add(this.layoutnavegacion);
             this.MinimumSize = new System.Drawing.Size(245, 320);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MrT";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.layoutnavegacion.ResumeLayout(false);

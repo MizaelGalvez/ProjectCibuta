@@ -32,7 +32,8 @@ namespace MT_project
         int posicion1, posicion2, posicion3, posicion4;
         int intercalar = 1;
 
-        int R_T = 1;
+        int PrimerCuadro = 0;
+        int SegundoCuadro = 0;
 
         int intercalarBinaria =1;
         int estrategia_aplicada_A = 460;
@@ -144,8 +145,55 @@ namespace MT_project
             F_verde_D.CenterColor = new RGB(127, 0, 255);
             F_verde_D.Radius = 100;
             // apply the filter
-            F_verde_D.ApplyInPlace(image);
-            NiveldeDeteccion1 = Detector1.ProcessFrame(image);
+            //F_verde_D.ApplyInPlace(image);
+            //NiveldeDeteccion1 = Detector1.ProcessFrame(image);
+
+
+            // create filter
+            EuclideanColorFiltering filter = new EuclideanColorFiltering();
+            // set center colol and radius
+            filter.CenterColor = new RGB(255, 255, 255);
+            filter.Radius = 200;
+            // apply the filter
+            filter.ApplyInPlace(image);
+
+
+            BlobCounter blobCounter = new BlobCounter();
+            blobCounter.MinWidth = 8;                    // set minimum size of
+            blobCounter.MinHeight = 1;                   // objects we look for
+            blobCounter.FilterBlobs = true;               // filter blobs by size
+            blobCounter.ObjectsOrder = ObjectsOrder.Area; // order found object by size
+
+            // grayscaling
+            Bitmap grayImage = (image);
+            // locate blobs 
+            blobCounter.ProcessImage(image);
+            Rectangle[] rects = blobCounter.GetObjectsRectangles();
+            // draw rectangle around the biggest blob
+            if (rects.Length > 0)
+            {
+                Rectangle objectRect = rects[0];
+                Graphics g = Graphics.FromImage(image);
+
+                using (Pen pen = new Pen(Color.FromArgb(255, 255, 255), 7))
+                {
+                    g.DrawRectangle(pen, objectRect);
+
+                }
+
+                PrimerCuadro = 1;
+
+                g.Dispose();
+            }
+            else
+            {
+                PrimerCuadro = 0;
+            }
+            
+
+
+
+
         }
 
         private void videoSourcePlayer4_NewFrame(object sender, ref Bitmap image)
@@ -155,8 +203,56 @@ namespace MT_project
             F_rojo.CenterColor = new RGB(127, 0, 255);
             F_rojo.Radius = 100;
             // apply the filter
-            F_rojo.ApplyInPlace(image);
-            NiveldeDeteccion3 = Detector3.ProcessFrame(image);
+            //F_rojo.ApplyInPlace(image);
+            //NiveldeDeteccion3 = Detector3.ProcessFrame(image);
+
+
+
+            // create filter
+            EuclideanColorFiltering filter = new EuclideanColorFiltering();
+            // set center colol and radius
+            filter.CenterColor = new RGB(255, 255, 255);
+            filter.Radius = 200;
+            // apply the filter
+            filter.ApplyInPlace(image);
+
+
+            BlobCounter blobCounter = new BlobCounter();
+            blobCounter.MinWidth = 8;                    // set minimum size of
+            blobCounter.MinHeight = 1;                   // objects we look for
+            blobCounter.FilterBlobs = true;               // filter blobs by size
+            blobCounter.ObjectsOrder = ObjectsOrder.Area; // order found object by size
+
+            // grayscaling
+            Bitmap grayImage = (image);
+            // locate blobs 
+            blobCounter.ProcessImage(image);
+            Rectangle[] rects = blobCounter.GetObjectsRectangles();
+            // draw rectangle around the biggest blob
+            if (rects.Length > 0)
+            {
+                Rectangle objectRect = rects[0];
+                Graphics g = Graphics.FromImage(image);
+
+                using (Pen pen = new Pen(Color.FromArgb(255, 255, 255), 7))
+                {
+                    g.DrawRectangle(pen, objectRect);
+
+                }
+
+                SegundoCuadro = 1;
+
+                g.Dispose();
+            }
+            else
+            {
+                SegundoCuadro = 0;
+            }
+
+
+
+
+
         }
 
         ////////////////////////////////////////////////////////////SEGUNDA DOS VENTANAS A LA DERECHA//////////////////////////////////////////////////////////////
@@ -299,34 +395,9 @@ namespace MT_project
         {
             if (NiveldeDeteccion1 > sensibilidadB)
             {
-                if (intercalarBinaria == 1)
-                {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaB;
-                    estrategia_aplicada_B = estrategiaA;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
-                }
-                else
-                {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaB_;
-                    estrategia_aplicada_B = estrategiaA_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
-                }
-
-                button2.Text = estrategia_aplicada_A.ToString();
-
-
-
-                pictureBox1.BackColor = System.Drawing.Color.Red; //original accion VERDE
-                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A); 
-                HacerClickConHora();
-                Thread.Sleep(2000);
+               
+                //HacerClickConHora(1);
+                //Thread.Sleep(2000);
 
             }
             else
@@ -339,33 +410,9 @@ namespace MT_project
 
             if (NiveldeDeteccion3 > sensibilidadB)
             {
-                if (intercalarBinaria == 1)
-                {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaB;
-                    estrategia_aplicada_B = estrategiaA;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
-                }
-                else
-                {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaB_;
-                    estrategia_aplicada_B = estrategiaA_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
-                }
-
-                button2.Text = estrategia_aplicada_A.ToString();
-
-
-                pictureBox4.BackColor = System.Drawing.Color.Red; //del Horiginal Acion ROJA
-                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
-                HacerClickConHora();
-                Thread.Sleep(2000);
+               
+                //HacerClickConHora(2);
+                //Thread.Sleep(2000);
 
 
             }
@@ -384,30 +431,18 @@ namespace MT_project
 
             if (NiveldeDeteccion2 > sensibilidadUSADA)
             {
-                if (intercalarBinaria == 1)
+                if (PrimerCuadro == 1 && SegundoCuadro == 0)
                 {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaA;
-                    estrategia_aplicada_B = estrategiaB;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
+                    HacerClickConHora(3);
+                    Thread.Sleep(2000);
                 }
-                else
+                if (PrimerCuadro == 0 && SegundoCuadro == 1)
                 {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaA_;
-                    estrategia_aplicada_B = estrategiaB_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
+                    HacerClickConHora(3);
+                    Thread.Sleep(2000);
                 }
-
-                button2.Text = estrategia_aplicada_A.ToString();
-                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
-                HacerClickConHora();
-                Thread.Sleep(2000);
+                
+                
 
                 
 
@@ -420,31 +455,18 @@ namespace MT_project
 
             if (NiveldeDeteccion5 > sensibilidadUSADA)
             {
-                if (intercalarBinaria == 1)
+                if (PrimerCuadro ==1 && SegundoCuadro == 0)
                 {
-                    resolucionAPLICADA = resolucionA;
-                    estrategia_aplicada_A = estrategiaA;
-                    estrategia_aplicada_B = estrategiaB;
-
-                    cambioResolucion.Text = "Resolucion 1470";
-
-
+                    HacerClickConHora(4);
+                    Thread.Sleep(2000);
                 }
-                else
+                if (PrimerCuadro == 0 && SegundoCuadro == 1)
                 {
-                    resolucionAPLICADA = ResolucionB;
-                    estrategia_aplicada_A = estrategiaA_;
-                    estrategia_aplicada_B = estrategiaB_;
-
-                    cambioResolucion.Text = "Resolucion 1810";
-
+                    HacerClickConHora(4);
+                    Thread.Sleep(2000);
                 }
+                
 
-                button2.Text = estrategia_aplicada_A.ToString();
-
-                Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A);
-                HacerClickConHora();
-                Thread.Sleep(2000);
 
             }
             else
@@ -453,7 +475,7 @@ namespace MT_project
             }
 
 
-            /////////////////////////////////////////////////////segundas DOS////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
             if (NiveldeDeteccion4 > 00.0001)
@@ -462,12 +484,12 @@ namespace MT_project
 
 
                 Cursor.Position = new System.Drawing.Point(850, 5);// original en Y 550
-                HacerClickConHora();
+                HacerClickConHora(5);
 
                 SendKeys.Send("^w");
 
                 Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, VentanaNueva);// original en Y 550
-                HacerClickConHora();
+                HacerClickConHora(5);
 
                 Thread.Sleep(2000);
             }
@@ -490,6 +512,7 @@ namespace MT_project
 
             Horario.Enabled = true;
 
+            Estrategia.BackColor = Color.Lime;
 
             Rectangle screenArea = Rectangle.Empty;
 
@@ -500,17 +523,27 @@ namespace MT_project
             videoSourcePlayer2.VideoSource = FuentedeVideo2;
             videoSourcePlayer2.Start();
 
-            //
+            // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
             Rectangle screenArea2 = Rectangle.Empty; //Linea Superior
 
-            screenArea2 = new Rectangle(1140, 765, 150, 10); // si funciona la deteccion y el PUT anterior de 785  y menos 10
+            screenArea2 = new Rectangle(850, 430, 125, 65); // si funciona la deteccion y el PUT anterior de 785  y menos 10
 
             FuentedeVideo1 = new ScreenCaptureStream(screenArea2);
 
             videoSourcePlayer1.VideoSource = FuentedeVideo1;
             videoSourcePlayer1.Start();
 
+            Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
+
+            screenArea4 = new Rectangle(1100, 430, 125, 65); //si Funciona el PUSH antes 982 menos 10
+
+            FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
+
+            videoSourcePlayer4.VideoSource = FuentedeVideo4;
+            videoSourcePlayer4.Start();
+
+            // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
             Rectangle screenArea3 = Rectangle.Empty;
 
@@ -520,16 +553,6 @@ namespace MT_project
 
             videoSourcePlayer3.VideoSource = FuentedeVideo3;
             videoSourcePlayer3.Start();
-
-
-            Rectangle screenArea4 = Rectangle.Empty;  // linea Roja, 
-
-            screenArea4 = new Rectangle(1140, 912, 150, 10); //si Funciona el PUSH antes 982 menos 10
-
-            FuentedeVideo4 = new ScreenCaptureStream(screenArea4);
-
-            videoSourcePlayer4.VideoSource = FuentedeVideo4;
-            videoSourcePlayer4.Start();
 
 
             Rectangle screenArea5 = Rectangle.Empty; //COORDENADAS TENDENCIA SEGUNDA COLUMNA PRIMER RENGLON
@@ -544,6 +567,8 @@ namespace MT_project
         
         private void DesvincularTodo_Click(object sender, EventArgs e)
         {
+            Estrategia.BackColor = Color.Black;
+
             videoSourcePlayer1.SignalToStop();
             videoSourcePlayer2.SignalToStop();
             videoSourcePlayer3.SignalToStop();
@@ -554,7 +579,7 @@ namespace MT_project
             Estrategia.Enabled = false;
 
             Horario.Enabled = true;
-            Horario.BackColor = SystemColors.Control;
+            Horario.BackColor = Color.DarkOrange;
             Horario.Enabled = false;
 
 
@@ -650,7 +675,7 @@ namespace MT_project
 
         ////////////////////////////////////////////////////////////////////////////
 
-        public void HacerClickConHora()
+        public void HacerClickConHora(int cuadro)
         {
             int a = DateTime.Now.Hour;
             int b = DateTime.Now.Minute;
@@ -659,25 +684,147 @@ namespace MT_project
             {
                 if ((a == horaA && b >=minutoA)  ||  (a != horaA && a != horaB)   ||    (a == horaB && b <= minutoB))
                 {
-                   
-                    EnviarClick(0, 0);
-                    //cambioResolucion.Text = a.ToString();
-                    //button2.Text = b.ToString();
-                    //button3.Text = "DENTRO";
+
+
+
+                    switch (cuadro)
+                    {
+                        case 1:
+                            if (intercalarBinaria == 1)
+                            {
+                                resolucionAPLICADA = resolucionA;
+                                estrategia_aplicada_A = estrategiaB;
+                                estrategia_aplicada_B = estrategiaA;
+
+                                cambioResolucion.Text = "Resolucion 1470";
+
+
+                            }
+                            else
+                            {
+                                resolucionAPLICADA = ResolucionB;
+                                estrategia_aplicada_A = estrategiaB_;
+                                estrategia_aplicada_B = estrategiaA_;
+
+                                cambioResolucion.Text = "Resolucion 1810";
+
+                            }
+
+                            button2.Text = "Rebote a la Baja";//estrategia_aplicada_A.ToString();
+
+                            
+                            Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A);
+
+                            EnviarClick(0, 0);
+                            break;
+
+                        case 2:
+                            if (intercalarBinaria == 1)
+                            {
+                                resolucionAPLICADA = resolucionA;
+                                estrategia_aplicada_A = estrategiaB;
+                                estrategia_aplicada_B = estrategiaA;
+
+                                cambioResolucion.Text = "Resolucion 1470";
+
+
+                            }
+                            else
+                            {
+                                resolucionAPLICADA = ResolucionB;
+                                estrategia_aplicada_A = estrategiaB_;
+                                estrategia_aplicada_B = estrategiaA_;
+
+                                cambioResolucion.Text = "Resolucion 1810";
+
+                            }
+
+                            button2.Text = button2.Text = "Rebote a la Alta";//estrategia_aplicada_A.ToString();
+
+                            Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
+
+                            EnviarClick(0, 0);
+                            break;
+
+                        case 3:
+                            if (intercalarBinaria == 1)
+                            {
+                                resolucionAPLICADA = resolucionA;
+                                estrategia_aplicada_A = estrategiaA;
+                                estrategia_aplicada_B = estrategiaB;
+
+                                cambioResolucion.Text = "Resolucion 1470";
+
+
+                            }
+                            else
+                            {
+                                resolucionAPLICADA = ResolucionB;
+                                estrategia_aplicada_A = estrategiaA_;
+                                estrategia_aplicada_B = estrategiaB_;
+
+                                cambioResolucion.Text = "Resolucion 1810";
+
+                            }
+
+                            button2.Text = "Tendencia a la ALTA";//estrategia_aplicada_A.ToString();
+                            Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_B);
+
+                            EnviarClick(0, 0);
+
+                            break;
+
+                        case 4:
+                            if (intercalarBinaria == 1)
+                            {
+                                resolucionAPLICADA = resolucionA;
+                                estrategia_aplicada_A = estrategiaA;
+                                estrategia_aplicada_B = estrategiaB;
+
+                                cambioResolucion.Text = "Resolucion 1470";
+
+
+                            }
+                            else
+                            {
+                                resolucionAPLICADA = ResolucionB;
+                                estrategia_aplicada_A = estrategiaA_;
+                                estrategia_aplicada_B = estrategiaB_;
+
+                                cambioResolucion.Text = "Resolucion 1810";
+
+                            }
+
+                            button2.Text = "Tendencia a la BAJA";//estrategia_aplicada_A.ToString();
+
+                            Cursor.Position = new System.Drawing.Point(resolucionAPLICADA, estrategia_aplicada_A);
+
+                            EnviarClick(0, 0);
+
+                            break;
+
+                        case 5:
+                            EnviarClick(0, 0);
+                            break;
+
+
+                        default:
+                            break;
+                    }
+
+
+
+
+
+                    
                 }
                 else
                 {
-                    //cambioResolucion.Text = a.ToString();
-                    //button2.Text = b.ToString();
-                    //button3.Text = "FUERA";
                 }
 
             }
             else
             {
-                //cambioResolucion.Text = a.ToString();
-                //button2.Text = b.ToString();
-                //button3.Text = "FUERA";
             }
 
         }
